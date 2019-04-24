@@ -1,0 +1,29 @@
+server:
+  port: 4000
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/inven?useSSL=false
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 3600000
+      connection-timeout: 30000
+      max-lifetime: 86400000
+      leak-detection-threshold: 1800000
+  session:
+    store-type: jdbc
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: update
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    open-in-view: true
+    show-sql: true
+
